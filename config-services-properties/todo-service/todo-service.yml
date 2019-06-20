@@ -1,0 +1,32 @@
+# App
+spring:
+  datasource:
+    username: user
+    password: password
+
+  h2:
+    console:
+      path: /h2-console
+      settings:
+        trace: true
+      enabled: true
+  jpa:
+    show-sql: true
+
+# Servlet
+server:
+  port: 8081
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+
+logging:
+  level:
+    root: warn
+    com.melardev: trace
+    org.springframework.web: info
+

@@ -1,0 +1,28 @@
+server:
+  port: 8082
+
+ribbon:
+  eureka:
+    enabled: true
+  ReadTimeout: 5000
+
+logging:
+  level:
+    root: error
+    com.melardev: debug
+    org.springframework: basic
+    com.melardev.spring.proxy.api.TodoFeignClient: debug
+    com.melardev.spring.proxy.api.TodoFeignErrorDetailsAwareClient: BASIC
+
+feign:
+  hystrix:
+    enabled: true
+hystrix:
+  metrics:
+    enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

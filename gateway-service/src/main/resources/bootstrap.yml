@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    config:
+      discovery:
+        enabled: true # this will only work if the file is called bootstrap.yml (application.yml would not work)
+        service-id: config-service
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_HOSTNAME:http://localhost:8761}/eureka/
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2

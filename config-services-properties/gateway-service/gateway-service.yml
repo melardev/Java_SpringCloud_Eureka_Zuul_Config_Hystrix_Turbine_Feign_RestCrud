@@ -1,0 +1,36 @@
+server:
+  port: 8080
+
+zuul:
+  prefix: /api
+  routes:
+    todo-service: /todos/**
+    proxy:
+      serviceId: proxy-service
+      strip-prefix: true # remove the /api, this is the default already
+
+hystrix:
+  metrics:
+    enabled: true
+
+  enabled: true
+
+management:
+  endpoint:
+    hystrix:
+      stream:
+        enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+ribbon:
+  eureka:
+    enabled: true
+
+logging:
+  level:
+    root: warn
+    com.melardev: trace
+    org.springframework.cloud.netflix.zuul: debug

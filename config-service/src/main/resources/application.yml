@@ -1,0 +1,30 @@
+server:
+  port: 8889
+
+spring:
+  application:
+    name: config-service
+
+  cloud:
+    config:
+      label: master
+      server:
+        git:
+          label: master
+          clone-on-start: false
+          uri: https://github.com/melardev/Java_SpringCloud_Eureka_Zuul_Config_Hystrix_Turbine_Feign_RestCrud.git
+          # username: YOUR_USERNAME
+          # password: YOUR_PASSWORD
+          search-paths: "config-services-properties/{application}"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+logging:
+  level:
+    root: error
+    org.springframework.cloud.config: info
+    com.melardev: debug
